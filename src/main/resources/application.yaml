@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: QuickReplyBot
+
+gemini:
+  api:
+    key: ${GEMINI_API_KEY}
+    url: ${GEMINI_API_URL}
