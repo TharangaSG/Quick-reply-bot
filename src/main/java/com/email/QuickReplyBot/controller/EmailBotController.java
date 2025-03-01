@@ -3,16 +3,13 @@ package com.email.QuickReplyBot.controller;
 import com.email.QuickReplyBot.domain.EmailRequest;
 import com.email.QuickReplyBot.services.EmailBotService;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/email")
 @AllArgsConstructor
+@CrossOrigin(origins = "*")
 public class EmailBotController {
 
     private final EmailBotService emailBotService;
@@ -21,5 +18,6 @@ public class EmailBotController {
     public ResponseEntity<String> generateEmail(@RequestBody EmailRequest emailRequest){
         String response = emailBotService.generateReply(emailRequest);
         return ResponseEntity.ok(response);
+
     }
 }
